@@ -31,7 +31,8 @@ class ApplicationController < Sinatra::Base
     puts params
     @user = User.find_by(email: params["email"], password: params["password"])
     if @user 
-      session[:id] = @user
+      session[:id] = @user.id
+      
     # Should an if statement go here?
     session[:id] = @user.id
     redirect '/users/home'
