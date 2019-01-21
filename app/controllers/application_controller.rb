@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
     if @user 
       session[:id] = @user.id
       redirect '/users/home'
-      
+    end 
     # Should an if statement go here?
     session[:id] = @user.id
     redirect '/users/home'
