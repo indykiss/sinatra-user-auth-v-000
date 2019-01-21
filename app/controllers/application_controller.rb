@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
     erb :'sessions/login'
   end
 
-  post '/sessions/login' do
+  post '/sessions' do
     puts params
     @user = User.find_by(email: params["email"], password: params["password"])
     if @user 
@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
     end 
     # Should an if statement go here?
     session[:id] = @user.id
-    redirect '/sessions/login'
+    redirect '/sessions'
   end
 
   get '/sessions/logout' do 
